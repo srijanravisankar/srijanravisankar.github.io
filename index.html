@@ -89,6 +89,23 @@
       margin-bottom: 20px;
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
     }
+    .btn-resume {
+      display: inline-block;
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 20px;
+      animation: fadeInUp 1.6s ease-in;
+    }
+    .btn-resume:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
 
 
     /* Projects */
@@ -187,7 +204,7 @@
 <body>
   <nav>
     <h1>
-      Srijan Ravisankar
+      <a href="https://srijanravisankar.github.io/">Srijan Ravisankar</a>
       <img src="images/ca flag.png" alt="Logo" style="height:15px; width: 30px; margin-left: 8px;" />
     </h1>
     <ul>
@@ -201,10 +218,15 @@
   <section id="home">
     <img src="images/Srijan Profile Photo.png" alt="Srijan Ravishankar" class="profile-pic" />
     <h1>Hello, I'm Srijan 👋</h1>
+    <p style="font-size: large; padding-bottom: 20px;">
+      Software Engineer
     <p>
       I'm pursuing an Honors B.Sc. in Computer Science at Lakehead University and passionate about building impactful software.  
       I’ve worked on full-stack projects using JavaScript, React.js, Python (FastAPI), and love working on backend, DevOps, and creative tech ideas.
     </p>
+    <a href="files/Srijan Resume Nov 2025.pdf" target="_blank" class="btn-resume" >
+      📄 Download Resume
+    </a>
   </section>
 
   <section id="projects">
