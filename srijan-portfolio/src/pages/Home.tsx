@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Header } from '@/components/layout/Header';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2, Layers, Wrench, Container, Terminal, GitBranch, Server, Shield, Cloud,
@@ -23,24 +24,35 @@ export default function Home() {
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
-  });
-  
+  });  
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
     <>
-      <SEOHead 
+      <SEOHead
         title="Srijan Ravisankar | Full-Stack Developer"
         description="Full-stack developer specializing in React, TypeScript, and cloud technologies. Building performant, scalable applications."
       />
-      
-      <div className="min-h-screen mt-10">
+
+      <div className="min-h-screen">
         {/* Hero Section */}
         <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Animated Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/20">
+          {/* GIF Background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat mt-auto"
+            style={{
+              backgroundImage: "url('/flickering-developer.gif')",
+              backgroundAttachment: 'fixed'
+            }}
+          />
+          
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
+
+          {/* Animated Background Gradients (optional - on top of GIF) */}
+          <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--primary)/0.05),transparent_50%)]" />
             {/* Floating elements */}
@@ -72,14 +84,14 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
               className="space-y-6"
             >
-              {/* Name with gradient */}
+              {/* Name - removed the GIF background from text */}
               <motion.h1
                 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <span className="bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
+                <span className="bg-white from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
                   {portfolioInfo.name.split(' ')[0]}
                 </span>
                 <br />
@@ -138,15 +150,15 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <a href={portfolioInfo.socialLinks.github} target="_blank" rel="noopener noreferrer" 
-                   className="text-muted-foreground hover:text-foreground transition-colors">
+                  className="text-muted-foreground hover:text-foreground transition-colors">
                   <Github className="size-5" />
                 </a>
                 <a href={portfolioInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
-                   className="text-muted-foreground hover:text-foreground transition-colors">
+                  className="text-muted-foreground hover:text-foreground transition-colors">
                   <Linkedin className="size-5" />
                 </a>
                 <a href={`mailto:${portfolioInfo.socialLinks.email}`}
-                   className="text-muted-foreground hover:text-foreground transition-colors">
+                  className="text-muted-foreground hover:text-foreground transition-colors">
                   <Mail className="size-5" />
                 </a>
               </motion.div>

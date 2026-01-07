@@ -20,12 +20,12 @@ const navLinks = [
  * Main header component with scroll-aware styling
  * Handles in-page smooth scrolling for single-page navigation
  */
-export function Header() {
+export function Header({ showGif = false }: { showGif?: boolean }) {
   const location = useLocation();
   const { isScrolled } = useScrollPosition();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const isTransparent = location.pathname === '/' && !isScrolled;
+  const isTransparent = location.pathname === '/' && !isScrolled && !showGif;
 
   // Custom scroll handler to navigate to sections on the same page
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -67,17 +67,17 @@ export function Header() {
           {/* Logo - Still links to home root */}
           <Link
             to="/"
-            className="text-3xl font-semibold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
+            className={cn("text-3xl font-semibold tracking-tight text-foreground hover:text-foreground/80 transition-colors")}
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center gap-2"
+              className={cn("flex items-center gap-2", isTransparent ? 'text-white' : 'text-foreground')}
             >
-              <span className="text-primary">&lt;</span>
+              <span>&lt;</span>
               <span>SR</span>
-              <span className="text-primary">/&gt;</span>
+              <span>/&gt;</span>
             </motion.span>
           </Link>
 
@@ -94,8 +94,8 @@ export function Header() {
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer",
-                    "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    "relative px-4 py-2 text-md font-medium rounded-lg transition-colors cursor-pointer",
+                    "text-muted-foreground hover:text-foreground hover:bg-accent/80"
                   )}
                 >
                   {link.name}
