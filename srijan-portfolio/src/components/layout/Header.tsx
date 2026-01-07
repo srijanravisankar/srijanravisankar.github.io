@@ -68,7 +68,7 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
           {/* Logo - Still links to home root */}
           <Link
             to="/"
-            className={cn("text-3xl font-semibold tracking-tight text-foreground hover:text-foreground/80 transition-colors")}
+            className={cn("text-lg font-semibold tracking-widest text-foreground hover:text-foreground/80 transition-colors")}
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -76,9 +76,9 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className={cn("flex items-center gap-2", isTransparent ? 'text-white' : 'text-foreground')}
             >
-              <span>&lt;</span>
-              <span>SR</span>
-              <span>/&gt;</span>
+              {/* <span>&lt;</span> */}
+              <span>SRIJAN RAVISANKAR</span>
+              {/* <span>/&gt;</span> */}
             </motion.span>
           </Link>
 
