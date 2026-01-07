@@ -109,7 +109,7 @@ export default function Home() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Badge variant="secondary" className="text-sm md:text-base px-4 py-2 font-medium tracking-wide">
+                <Badge variant="secondary" className="text-md md:text-base px-4 py-2 font-medium rounded-sm">
                   {portfolioInfo.title}
                 </Badge>
               </motion.div>
@@ -137,7 +137,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button> */}
-                <Button size="sm" variant="secondary" asChild>
+                <Button size="sm" variant="secondary" asChild className='bg-gray-700 text-black'>
                   <a href="/resume/Srijan_Ravisankar_Resume.pdf" download>
                     <Download className="mr-2 size-4" />
                     Download Resume
