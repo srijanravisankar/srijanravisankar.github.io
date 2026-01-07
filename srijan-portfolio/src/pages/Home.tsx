@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/Header';
+import ProjectCard from '@/components/ProjectCard';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2, Layers, Wrench, Container, Terminal, GitBranch, Server, Shield, Cloud,
@@ -234,7 +235,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-5">
+            {/* <div className="grid md:grid-cols-3 gap-5">
               {projects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 0.1}>
                   <Card className="group overflow-hidden h-full bg-card hover:shadow-xl transition-all duration-500">
@@ -297,6 +298,16 @@ export default function Home() {
                       </div>
                     </CardContent>
                   </Card>
+                </ScrollReveal>
+              ))}
+            </div> */}
+
+            {/* Projects Section in Home.tsx */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <ScrollReveal key={project.id} delay={index * 0.1}>
+                  {/* Spread the project object props into the new component */}
+                  <ProjectCard {...project} />
                 </ScrollReveal>
               ))}
             </div>
