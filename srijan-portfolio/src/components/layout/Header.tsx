@@ -13,6 +13,7 @@ const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -94,8 +95,8 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
                   className={cn(
-                    "relative px-4 py-2 text-md font-medium rounded-lg transition-colors cursor-pointer",
-                    "text-muted-foreground hover:text-foreground hover:bg-accent/80"
+                    "relative px-4 py-2 text-md transition-colors cursor-pointer",
+                    "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
                   {link.name}

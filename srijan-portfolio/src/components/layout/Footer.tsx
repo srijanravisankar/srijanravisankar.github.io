@@ -76,6 +76,9 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">
               {portfolioInfo.socialLinks.email}
             </p>
+            <p className="text-sm text-muted-foreground -mt-2">
+              {portfolioInfo.socialLinks.phone}
+            </p>
           </div>
         </div>
 

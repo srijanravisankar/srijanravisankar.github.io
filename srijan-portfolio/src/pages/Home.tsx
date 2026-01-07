@@ -11,6 +11,8 @@ import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/Header';
 import ProjectCard from '@/components/ProjectCard';
+import ContactCard from '@/components/ContactCard';
+import SkillsCard from '@/components/SkillsCard';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2, Layers, Wrench, Container, Terminal, GitBranch, Server, Shield, Cloud,
@@ -92,7 +94,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <span className="bg-white from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
+                <span className="bg-white from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent font-medium">
                   {portfolioInfo.name.split(' ')[0]}
                 </span>
                 <br />
@@ -311,22 +313,11 @@ export default function Home() {
                 </ScrollReveal>
               ))}
             </div>
-
-            <ScrollReveal delay={0.4}>
-              <div className="flex justify-center mt-12">
-                <Button size="lg" variant="outline" asChild className="group">
-                  <Link to="/portfolio">
-                    View All Projects
-                    <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+        {/* <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -365,6 +356,45 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
+        </section> */}
+
+        {/* Skills Section in Home.tsx */}
+        <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                  Technical Skills
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Technologies and tools I work with
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* The Accordion Skills Card Replacement */}
+            <ScrollReveal delay={0.2}>
+              <div className="hidden md:block">
+                <SkillsCard />
+              </div>
+              
+              {/* Mobile Fallback: Keep the grid for mobile devices as the accordion is too wide */}
+              <div className="grid md:hidden gap-4">
+                {skills.map((skill) => (
+                  <Card key={skill.category} className="bg-card/50">
+                    <CardContent className="p-4">
+                      <h3 className="font-bold text-[#ff5a91] mb-2">{skill.category}</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {skill.items.map(item => (
+                          <Badge key={item} variant="secondary">{item}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -519,31 +549,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact CTA Section */}
+        {/* Updated Contact CTA Section in Home.tsx */}
         <section id="contact" className="py-24 md:py-32 px-6 lg:px-8 bg-background relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]" />
           
           <div className="max-w-4xl mx-auto relative z-10">
             <ScrollReveal>
-              <div className="text-center space-y-7">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter">
-                  Ready to Contribute to Your Engineering Team!
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  As a Full-Stack Developer and AI enthusiast, I thrive at the intersection of modern web frameworks and intelligent data. 
-                  My experience building websites and exploring AI integration allows me to create user-centric experiences that are both fast and smart.
-                  I am currently open to discussing full-time roles or internships where I can contribute to the next generation of software innovation.
-                </p>
+              <div className="flex flex-col items-center justify-center text-center space-y-12">
+                
+                {/* The New Card Replacement */}
+                <ContactCard />
 
-                <div className="text-xl flex flex-wrap items-center justify-center gap-6 pt-8 text-muted-foreground">
-                  <a href={`mailto:${portfolioInfo.socialLinks.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                    <Mail className="size-5" />
-                    {portfolioInfo.socialLinks.email}
-                  </a>
-                  <a href={`tel:${portfolioInfo.socialLinks.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                    <Phone className="size-5" />
-                    {portfolioInfo.socialLinks.phone}
-                  </a>
+                <div className="space-y-4">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight bg-[url('/design-glitter.gif')] bg-cover bg-center bg-clip-text text-transparent drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)]">
+                    Ready to Contribute to Your Engineering Team!
+                  </h2>
+                  <p className="text-muted-foreground max-w-lg mx-auto">
+                    I'm currently seeking internships and full-time opportunities for 2026. 
+                    Feel free to reach out via the links in the card above.
+                  </p>
                 </div>
               </div>
             </ScrollReveal>

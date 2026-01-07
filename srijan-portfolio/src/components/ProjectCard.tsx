@@ -380,7 +380,7 @@ const ProjectCard = ({ title, description, liveDemo, sourceCode }: ProjectCardPr
                   /* FIXED: Exact shadows from your original CSS */
                   boxShadow: '-5px 20px 10px 0px rgba(5, 71, 17, 0.2)',
                   /* FIXED: Proper commas and explicit shadow transition */
-                  transition: 'transform ease-in-out, box-shadow ease-in-out, background-color ease-in-out 0s',
+                  transition: 'transform 0.2s ease-in-out 0.4s, box-shadow ease-in-out, background-color 0.2s ease-in-out 0s',
                 }}
                 /* Apply the deeper shadow on hover using inline style for priority */
                 onMouseEnter={(e) => {
@@ -390,11 +390,6 @@ const ProjectCard = ({ title, description, liveDemo, sourceCode }: ProjectCardPr
                   e.currentTarget.style.boxShadow = '0px 7px 5px -5px rgba(5, 71, 17, 0.5)';
                 }}
               >
-                {/* <Github 
-                  size={15} 
-                  className="text-[#00894d] group-hover/btn:text-white" 
-                  style={{ transition: 'color 0.2s ease-in-out 0s' }}
-                /> */}
                 <svg 
                   role="img" 
                   viewBox="0 0 24 24" 
@@ -417,7 +412,7 @@ const ProjectCard = ({ title, description, liveDemo, sourceCode }: ProjectCardPr
                   /* FIXED: Exact shadows from your original CSS */
                   boxShadow: '-5px 20px 10px 0px rgba(5, 71, 17, 0.2)',
                   /* FIXED: Proper commas and explicit shadow transition */
-                  transition: 'transform ease-in-out, box-shadow ease-in-out, background-color ease-in-out 0s',
+                  transition: 'transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.4s, background-color 0.2s ease-in-out 0s',
                 }}
                 /* Apply the deeper shadow on hover using inline style for priority */
                 onMouseEnter={(e) => {
