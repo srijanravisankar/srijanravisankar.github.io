@@ -44,7 +44,16 @@ export default function ContactCard() {
 
         {/* Bottom Email Reveal */}
         <div className="absolute bottom-13 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-500">
-          <a href={`mailto:${portfolioInfo.socialLinks.email}`} className="group flex items-center gap-2 text-[#bd9f67] hover:text-white transition-colors">
+          {/* <a href={`mailto:${portfolioInfo.socialLinks.email}`}>
+            <Mail className="size-3 transition-transform group-hover:scale-110" />
+            <span className='text-xs'>srijanvr@gmail.com</span>
+          </a> */}
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=srijanvr@gmail.com&su=Inquiry%20from%20Portfolio"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center gap-2 text-[#bd9f67] hover:text-white transition-colors"
+          >
             <Mail className="size-3 transition-transform group-hover:scale-110" />
             <span className='text-xs'>srijanvr@gmail.com</span>
           </a>

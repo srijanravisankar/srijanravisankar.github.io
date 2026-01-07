@@ -94,6 +94,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
+                <div className='text-lg text-red-500 tracking-normal mt-10'>⚠️ Currently Under Construction ⚠️</div>
                 <span className="bg-white from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent font-medium">
                   {portfolioInfo.name.split(' ')[0]}
                 </span>
@@ -153,15 +154,19 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <a href={portfolioInfo.socialLinks.github} target="_blank" rel="noopener noreferrer" 
-                  className="text-muted-foreground hover:text-foreground transition-colors">
+                  className="text-white hover:text-white/80 transition-colors text-sm">
                   <Github className="size-5" />
                 </a>
                 <a href={portfolioInfo.socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors">
+                  className="text-white hover:text-white/80 transition-colors text-sm">
                   <Linkedin className="size-5" />
                 </a>
-                <a href={`mailto:${portfolioInfo.socialLinks.email}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=srijanvr@gmail.com&su=Inquiry%20from%20Portfolio"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-white hover:text-white/80 transition-colors text-sm"
+                >
                   <Mail className="size-5" />
                 </a>
               </motion.div>
