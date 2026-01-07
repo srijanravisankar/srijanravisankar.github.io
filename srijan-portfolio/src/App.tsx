@@ -84,7 +84,7 @@ function AnimatedRoutes() {
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
+      <ThemeProvider attribute="class" defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Sonner />

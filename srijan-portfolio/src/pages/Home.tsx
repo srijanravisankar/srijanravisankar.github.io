@@ -46,7 +46,7 @@ export default function Home() {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat mt-auto"
             style={{
-              backgroundImage: "url('/flickering-developer.gif')",
+              backgroundImage: "url('/flickering-developer.png')",
               backgroundAttachment: 'fixed'
             }}
           />
@@ -116,7 +116,7 @@ export default function Home() {
 
               {/* Tagline */}
               <motion.p
-                className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed"
+                className="text-lg md:text-xl lg:text-2xl text-white font-light max-w-2xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -131,13 +131,13 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                <Button size="lg" asChild className="group">
-                  <Link to="/portfolio">
+                {/* <Button size="lg" asChild className="group">
+                  <a href="#projects">
                     View Projects
                     <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
+                  </a>
+                </Button> */}
+                <Button size="sm" variant="secondary" asChild>
                   <a href="/resume/Srijan_Ravisankar_Resume.pdf" download>
                     <Download className="mr-2 size-4" />
                     Download Resume
@@ -561,7 +561,7 @@ export default function Home() {
                 <ContactCard />
 
                 <div className="space-y-4">
-                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight bg-[url('/design-glitter.gif')] bg-cover bg-center bg-clip-text text-transparent drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.8)]">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
                     Ready to Contribute to Your Engineering Team!
                   </h2>
                   <p className="text-muted-foreground max-w-lg mx-auto">
