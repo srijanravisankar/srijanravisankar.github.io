@@ -36,9 +36,9 @@ export default function Home() {
         description="Full-stack developer specializing in React, TypeScript, and cloud technologies. Building performant, scalable applications."
       />
       
-      <div className="min-h-screen">
+      <div className="min-h-screen mt-10">
         {/* Hero Section */}
-        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/20">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_50%)]" />
@@ -170,7 +170,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-background relative">
+        <section id="about" className="py-24 md:py-32 px-6 lg:px-8 bg-background relative">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -195,10 +195,11 @@ export default function Home() {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     />
-                    <div className="relative z-10 text-center p-8">
-                      <Code2 className="size-24 text-primary/40 mx-auto mb-4" />
+                    <div className="relative z-10 p-0">
+                      {/* <Code2 className="size-24 text-primary/40 mx-auto mb-4" />
                       <p className="text-xl font-medium">Building the future,</p>
-                      <p className="text-muted-foreground">one line at a time</p>
+                      <p className="text-muted-foreground">one line at a time</p> */}
+                      <img src="/Srijan-Professional-Image-1.png" alt="Company Logo" />
                     </div>
                   </div>
                 </div>
@@ -207,52 +208,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
-          <div className="max-w-6xl mx-auto">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                  Technical Skills
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Technologies and tools I work with
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {skills.map((skill, index) => {
-                const IconComponent = iconMap[skill.icon] || Code2;
-                return (
-                  <ScrollReveal key={skill.category} delay={index * 0.1}>
-                    <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 rounded-lg bg-primary/10">
-                            <IconComponent className="size-5 text-primary" />
-                          </div>
-                          <h3 className="font-semibold text-lg">{skill.category}</h3>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {skill.items.map((item) => (
-                            <Badge key={item} variant="secondary" className="font-normal">
-                              {item}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* Projects Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-background">
-          <div className="max-w-6xl mx-auto">
+        <section id="projects" className="py-24 md:py-32 px-6 lg:px-8 bg-background">
+          <div className="max-w-5xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -264,7 +222,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-5">
               {projects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 0.1}>
                   <Card className="group overflow-hidden h-full bg-card hover:shadow-xl transition-all duration-500">
@@ -344,8 +302,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Skills Section */}
+        <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                  Technical Skills
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Technologies and tools I work with
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {skills.map((skill, index) => {
+                const IconComponent = iconMap[skill.icon] || Code2;
+                return (
+                  <ScrollReveal key={skill.category} delay={index * 0.1}>
+                    <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="p-2 rounded-lg bg-primary/10">
+                            <IconComponent className="size-5 text-primary" />
+                          </div>
+                          <h3 className="font-semibold text-lg">{skill.category}</h3>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {skill.items.map((item) => (
+                            <Badge key={item} variant="secondary" className="font-normal">
+                              {item}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Education & Coursework Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+        <section id="education" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Education */}
@@ -407,7 +408,7 @@ export default function Home() {
         </section>
 
         {/* Certifications Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-background">
+        <section id="certifications" className="py-24 md:py-32 px-6 lg:px-8 bg-background">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -449,7 +450,7 @@ export default function Home() {
         </section>
 
         {/* Hackathons Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+        <section id="hackathons" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -496,42 +497,28 @@ export default function Home() {
         </section>
 
         {/* Contact CTA Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-background relative overflow-hidden">
+        <section id="contact" className="py-24 md:py-32 px-6 lg:px-8 bg-background relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]" />
           
           <div className="max-w-4xl mx-auto relative z-10">
             <ScrollReveal>
-              <div className="text-center space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  Let's Build Something Great
+              <div className="text-center space-y-7">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tighter">
+                  Ready to Contribute to Your Engineering Team!
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  I'm always excited to work on new projects and collaborate with talented people. 
-                  Feel free to reach out!
+                  As a Full-Stack Developer and AI enthusiast, I thrive at the intersection of modern web frameworks and intelligent data. 
+                  My experience building websites and exploring AI integration allows me to create user-centric experiences that are both fast and smart.
+                  I am currently open to discussing full-time roles or internships where I can contribute to the next generation of software innovation.
                 </p>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                  <Button size="lg" asChild className="group">
-                    <Link to="/contact">
-                      <Mail className="mr-2 size-4" />
-                      Get in Touch
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <a href="/resume/Srijan_Ravisankar_Resume.pdf" download>
-                      <Download className="mr-2 size-4" />
-                      Download Resume
-                    </a>
-                  </Button>
-                </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-muted-foreground">
+                <div className="text-xl flex flex-wrap items-center justify-center gap-6 pt-8 text-muted-foreground">
                   <a href={`mailto:${portfolioInfo.socialLinks.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                    <Mail className="size-4" />
+                    <Mail className="size-5" />
                     {portfolioInfo.socialLinks.email}
                   </a>
                   <a href={`tel:${portfolioInfo.socialLinks.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                    <Phone className="size-4" />
+                    <Phone className="size-5" />
                     {portfolioInfo.socialLinks.phone}
                   </a>
                 </div>

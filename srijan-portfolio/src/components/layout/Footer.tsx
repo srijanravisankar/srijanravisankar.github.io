@@ -10,8 +10,8 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-accent/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+        <div className="grid md:grid-cols-3 gap-8 py-3">
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="text-lg font-semibold tracking-tight flex items-center gap-2">
@@ -80,12 +80,9 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-3 border-t border-border flex flex-col sm:flex-row items-center justify-center">
           <p className="text-sm text-muted-foreground">
             © {currentYear} {portfolioInfo.name}. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="size-3 text-red-500 fill-red-500" /> using React & TypeScript
           </p>
         </div>
       </div>

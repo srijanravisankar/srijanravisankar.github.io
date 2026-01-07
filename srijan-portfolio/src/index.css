@@ -5,6 +5,11 @@
 All colors MUST be HSL.
 */
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* Matches your h-16 header height */
+}
+
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(240 10% 3.9%);
@@ -175,7 +180,12 @@ All colors MUST be HSL.
   }
 }
 
+
 @layer base {
+  html, body {
+    @apply overflow-x-hidden w-full;
+  }
+
   * {
     @apply border-border;
   }

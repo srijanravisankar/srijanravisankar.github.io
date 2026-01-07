@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, Github, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
@@ -10,15 +10,15 @@ import { portfolioInfo } from '@/data/portfolio';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Projects', path: '/portfolio' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 /**
  * Main header component with scroll-aware styling
- * Transparent on hero section, solid when scrolled
+ * Handles in-page smooth scrolling for single-page navigation
  */
 export function Header() {
   const location = useLocation();
@@ -26,6 +26,29 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const isTransparent = location.pathname === '/' && !isScrolled;
+
+  // Custom scroll handler to navigate to sections on the same page
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // Extract ID from href (e.g., "#about" -> "about")
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      // Offset for the fixed header (h-16 is 64px, adding 16px buffer = 80px)
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
@@ -41,10 +64,10 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - Still links to home root */}
           <Link
             to="/"
-            className="text-lg font-semibold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
+            className="text-3xl font-semibold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -62,22 +85,21 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link, index) => (
               <motion.div
-                key={link.path}
+                key={link.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
               >
-                <Link
-                  to={link.path}
+                <a
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-medium rounded-lg transition-colors",
-                    location.pathname === link.path
-                      ? "text-foreground bg-accent"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    "relative px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer",
+                    "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
                 >
                   {link.name}
-                </Link>
+                </a>
               </motion.div>
             ))}
             
@@ -131,19 +153,17 @@ export function Header() {
               <SheetContent side="right" className="w-full sm:w-80">
                 <nav className="flex flex-col gap-2 mt-8">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      onClick={() => setMobileMenuOpen(false)}
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleScroll(e, link.href)}
                       className={cn(
-                        "px-4 py-3 text-lg font-medium rounded-lg transition-colors",
-                        location.pathname === link.path
-                          ? "text-foreground bg-accent"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        "px-4 py-3 text-lg font-medium rounded-lg transition-colors cursor-pointer",
+                        "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                       )}
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   ))}
                   
                   <div className="flex items-center gap-4 mt-6 pt-6 border-t border-border px-4">
