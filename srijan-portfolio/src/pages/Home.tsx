@@ -13,6 +13,8 @@ import { Header } from '@/components/layout/Header';
 import ProjectCard from '@/components/ProjectCard';
 import ContactCard from '@/components/ContactCard';
 import SkillsCard from '@/components/SkillsCard';
+import CertificatesCard from '@/components/CertificatesCard';
+import CoursesCard from '@/components/CoursesCard';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2, Layers, Wrench, Container, Terminal, GitBranch, Server, Shield, Cloud,
@@ -94,7 +96,6 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <div className='text-lg text-red-500 tracking-normal mt-10'>⚠️ Currently Under Construction ⚠️</div>
                 <span className="bg-white from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent font-medium">
                   {portfolioInfo.name.split(' ')[0]}
                 </span>
@@ -132,16 +133,14 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                {/* <Button size="lg" asChild className="group">
-                  <a href="#projects">
-                    View Projects
-                    <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button> */}
-                <Button size="sm" variant="secondary" asChild className='bg-gray-700 text-black'>
-                  <a href="/resume/Srijan_Ravisankar_Resume.pdf" download>
+                <Button size="sm" variant="secondary" asChild>
+                  {/* <a href="/resume/Srijan_Ravisankar_Resume.pdf" download>
                     <Download className="mr-2 size-4" />
                     Download Resume
+                  </a> */}
+                  <a href="https://drive.google.com/file/d/1FWuWJMFsDDuwtofRkduzd9y5DbTbYZeT/view" target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-2 size-4" />
+                    View Resume
                   </a>
                 </Button>
               </motion.div>
@@ -194,7 +193,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
+                <div className="space-y-5">
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                     About Me
                   </h2>
@@ -203,10 +202,30 @@ export default function Home() {
                       <p key={i}>{paragraph}</p>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="size-4" />
-                    <span>{portfolioInfo.socialLinks.location}</span>
-                  </div>
+                  <ScrollReveal>
+                    <div className="space-y-4">
+                      <Card className="bg-card/50 backdrop-blur-sm">
+                        <CardContent className="p-4 space-y-2">
+                          <div>
+                            <h3 className="text-xl font-semibold">{education.institution}</h3>
+                            <p className="text-muted-foreground">{education.degree}</p>
+                          </div>
+                          <div className="flex flex-wrap gap-4 text-sm">
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary">CGPA: {education.cgpa}</Badge>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <MapPin className="size-4" />
+                              {education.location}
+                            </div>
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Expected Graduation: {education.expectedGraduation}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </ScrollReveal>
                 </div>
                 <div className="relative">
                   <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center overflow-hidden">
@@ -216,13 +235,65 @@ export default function Home() {
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     />
                     <div className="relative z-10 p-0">
-                      {/* <Code2 className="size-24 text-primary/40 mx-auto mb-4" />
-                      <p className="text-xl font-medium">Building the future,</p>
-                      <p className="text-muted-foreground">one line at a time</p> */}
                       <img src="/Srijan-Professional-Image-1.png" alt="Company Logo" />
                     </div>
                   </div>
                 </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Coursework Section */}
+        {/* <section id="coursework" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              <ScrollReveal delay={0.1}>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <BookOpen className="size-6 text-primary" />
+                    </div>
+                    <h2 className="text-3xl font-bold tracking-tight">Coursework</h2>
+                  </div>
+                  <Card className="bg-card/50 backdrop-blur-sm">
+                    <CardContent className="p-6">
+                      <div className="flex flex-wrap gap-2">
+                        {coursework.map((course) => (
+                          <Badge key={course} variant="secondary" className="font-normal">
+                            {course}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section> */}
+
+        {/* Coursework Section in Home.tsx */}
+        <section id="coursework" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30 overflow-hidden">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <BookOpen className="size-6 text-primary" />
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Relevant Coursework</h2>
+                </div>
+                <p className="text-muted-foreground text-lg">
+                  Core computer science and engineering modules
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* The Triple Marquee Container */}
+            <ScrollReveal delay={0.2}>
+              <div className="relative">
+                <CoursesCard />
               </div>
             </ScrollReveal>
           </div>
@@ -253,49 +324,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Skills Section */}
-        {/* <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
-          <div className="max-w-6xl mx-auto">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                  Technical Skills
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Technologies and tools I work with
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {skills.map((skill, index) => {
-                const IconComponent = iconMap[skill.icon] || Code2;
-                return (
-                  <ScrollReveal key={skill.category} delay={index * 0.1}>
-                    <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 rounded-lg bg-primary/10">
-                            <IconComponent className="size-5 text-primary" />
-                          </div>
-                          <h3 className="font-semibold text-lg">{skill.category}</h3>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {skill.items.map((item) => (
-                            <Badge key={item} variant="secondary" className="font-normal">
-                              {item}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </section> */}
 
         {/* Skills Section in Home.tsx */}
         <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
@@ -336,73 +364,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Education & Coursework Section */}
-        <section id="education" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Education */}
-              <ScrollReveal>
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <GraduationCap className="size-6 text-primary" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tight">Education</h2>
-                  </div>
-                  <Card className="bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-6 space-y-4">
-                      <div>
-                        <h3 className="text-xl font-semibold">{education.institution}</h3>
-                        <p className="text-muted-foreground">{education.degree}</p>
-                      </div>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Badge variant="secondary">CGPA: {education.cgpa}</Badge>
-                        </div>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <MapPin className="size-4" />
-                          {education.location}
-                        </div>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        Expected Graduation: {education.expectedGraduation}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </ScrollReveal>
-
-              {/* Coursework */}
-              <ScrollReveal delay={0.1}>
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <BookOpen className="size-6 text-primary" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tight">Coursework</h2>
-                  </div>
-                  <Card className="bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-6">
-                      <div className="flex flex-wrap gap-2">
-                        {coursework.map((course) => (
-                          <Badge key={course} variant="secondary" className="font-normal">
-                            {course}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Certifications Section */}
-        <section id="certifications" className="py-24 md:py-32 px-6 lg:px-8 bg-background">
+        {/* Certifications Section in Home.tsx */}
+        <section id="certifications" className="py-24 md:py-32 px-6 lg:px-8 bg-background overflow-visible">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
-              <div className="text-center mb-16">
+              <div className="text-center -mb-6">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-primary/10">
                     <Award className="size-6 text-primary" />
@@ -414,29 +380,18 @@ export default function Home() {
                 <p className="text-muted-foreground text-lg">
                   Professional credentials and skills badges
                 </p>
+                <p className="text-muted-foreground text-xs">
+                  Hover to pause • Click to view original
+                </p>
               </div>
             </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {certifications.map((cert, index) => {
-                const IconComponent = iconMap[cert.icon] || Award;
-                return (
-                  <ScrollReveal key={cert.name} delay={index * 0.05}>
-                    <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all hover:shadow-lg">
-                      <CardContent className="p-6 flex items-start gap-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5">
-                          <IconComponent className="size-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold">{cert.name}</h3>
-                          <p className="text-sm text-muted-foreground">{cert.provider}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
+            {/* The 3D Carousel Replacement */}
+            <ScrollReveal delay={0.2}>
+              <div className="max-w-7xl mx-auto overflow-visible">
+                <CertificatesCard />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -457,19 +412,22 @@ export default function Home() {
             </ScrollReveal>
 
             <div className="max-w-3xl mx-auto">
-              {hackathons.map((hackathon, index) => (
+              {hackathons.map((hackathon, index) => (       
                 <ScrollReveal key={hackathon.name} delay={index * 0.1}>
-                  <Card className="bg-card/50 backdrop-blur-sm overflow-hidden">
+                  <Card className="bg-card/50 backdrop-blur-sm overflow-hidden mb-5">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                         <div>
-                          <h3 className="text-xl font-bold">{hackathon.name}</h3>
+                          <a href={hackathon.link} target="_blank" rel="noopener noreferrer" className='text-blue-600 underline'>
+                            <h3 className="text-xl font-bold">{hackathon.name}</h3>
+                          </a>
                           <p className="text-muted-foreground">{hackathon.date}</p>
                         </div>
+                        {hackathon.award &&
                         <Badge className="w-fit bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0">
                           <Trophy className="size-3 mr-1" />
                           {hackathon.award}
-                        </Badge>
+                        </Badge>}
                       </div>
                       <ul className="space-y-3">
                         {hackathon.description.map((desc, i) => (

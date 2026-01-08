@@ -12,8 +12,10 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
+  { name: 'Coursework', href: '#coursework' },
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -83,7 +85,7 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -152,7 +154,7 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-80">
-                <nav className="flex flex-col gap-2 mt-8">
+                <nav className="flex flex-col mt-8">
                   {navLinks.map((link) => (
                     <a
                       key={link.href}

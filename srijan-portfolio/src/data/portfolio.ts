@@ -30,6 +30,8 @@ export interface Project {
   frontendCode?: string;
   backendCode?: string;
   coverImage: string;
+  icon: string;
+  video?: string;
 }
 
 export interface Education {
@@ -45,13 +47,23 @@ export interface Certification {
   provider: string;
   icon: string;
   link?: string;
+  image: string;
+  description?: string;
 }
 
 export interface Hackathon {
   name: string;
-  award: string;
+  award?: string;
   date: string;
   description: string[];
+  link: string;
+}
+
+export interface Courses {
+  name: string;
+  code?: string;
+  institution: string;
+  grade?: number; 
 }
 
 export const portfolioInfo = {
@@ -107,9 +119,11 @@ export const projects: Project[] = [
     ],
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Shadcn', 'Supabase', 'PostgreSQL', 'Gemini'],
     period: 'November 2025 – December 2025',
-    liveDemo: '#',
-    sourceCode: '#',
+    liveDemo: 'https://odysseyelp.vercel.app/',
+    sourceCode: 'https://github.com/srijanravisankar/odysseyelp',
     coverImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80',
+    icon: 'Binoculars',
+    video: 'https://youtu.be/434eIXuXy24?si=OlAsf0kFuiktDs13',
   },
   {
     id: '2',
@@ -124,29 +138,13 @@ export const projects: Project[] = [
     ],
     technologies: ['React Native (Expo)', 'TypeScript', 'WatermeloDB', 'SQLite', 'CSS'],
     period: 'December 2025',
-    liveDemo: '#',
-    sourceCode: '#',
+    liveDemo: 'https://heydayweb.vercel.app/',
+    sourceCode: 'https://github.com/srijanravisankar/heyday',
     coverImage: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80',
+    icon: 'Timer',
   },
   {
     id: '3',
-    title: 'Wallet',
-    slug: 'wallet',
-    description: 'High-performance financial API with secure, Dockerized backend',
-    highlights: [
-      'Architected high-performance Kotlin/Ktor API using custom JDBC persistence',
-      'Optimized PostgreSQL schemas to scale complex financial operations',
-      'Engineered secure, Dockerized backend with thread-safe concurrency (ReentrantLocks)',
-      'Used functional patterns to ensure high-performance data integrity',
-    ],
-    technologies: ['Ktor', 'Kotlin', 'Gradle', 'PostgreSQL', 'JDBC', 'BCrypt', 'Docker'],
-    period: 'October 2025 – November 2025',
-    frontendCode: '#',
-    backendCode: '#',
-    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-  },
-  {
-    id: '4',
     title: 'Memento',
     slug: 'memento',
     description: 'Full-stack flashcard app with AI-powered spaced repetition',
@@ -158,9 +156,30 @@ export const projects: Project[] = [
     ],
     technologies: ['JavaScript', 'React.js', 'Python', 'FastAPI', 'SQLAlchemy', 'SQLite'],
     period: 'May 2025 – July 2025',
-    liveDemo: '#',
-    sourceCode: '#',
+    liveDemo: 'https://github.com/srijanravisankar/memento',
+    sourceCode: 'https://github.com/srijanravisankar/TheFlashcardProject',
     coverImage: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=80',
+    icon: 'Brain',
+    video: 'https://youtu.be/MDP3K2xdjAo?si=MfszniurfmXO-TA3',
+  },
+  {
+    id: '4',
+    title: 'Wallet',
+    slug: 'wallet',
+    description: 'High-performance financial API with secure, Dockerized backend',
+    highlights: [
+      'Architected high-performance Kotlin/Ktor API using custom JDBC persistence',
+      'Optimized PostgreSQL schemas to scale complex financial operations',
+      'Engineered secure, Dockerized backend with thread-safe concurrency (ReentrantLocks)',
+      'Used functional patterns to ensure high-performance data integrity',
+    ],
+    technologies: ['Ktor', 'Kotlin', 'Gradle', 'PostgreSQL', 'JDBC', 'BCrypt', 'Docker'],
+    period: 'October 2025 – November 2025',
+    frontendCode: 'https://github.com/srijanravisankar/wallet-frontend',
+    backendCode: 'https://github.com/srijanravisankar/wallet',
+    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    video: 'https://www.youtube.com/watch?v=DRINEXERaqk&t=1s',
+    icon: 'Wallet',
   },
 ];
 
@@ -172,35 +191,62 @@ export const education: Education = {
   expectedGraduation: 'June 2027',
 };
 
-export const coursework: string[] = [
-  'Software Engineering',
-  'Relational Databases',
-  'Data Structures',
-  'Cloud Computing',
-  'Computer Security',
-  'Cryptography',
-  'Computer Networks',
-  'Operating Systems',
-  'Data Science',
+export const coursework: Courses[] = [
+  {code: 'CSC 108', name: 'Introduction to Computer Programming', institution: 'University of Toronto', grade: 81},
+  {code: 'CSC 148', name: 'Introduction to Computer Science', institution: 'University of Toronto', grade: 63},
+  {code: 'MAT 102', name: 'Introduction to Mathematical Proofs', institution: 'University of Toronto', grade: 84},
+  {code: 'MAT 135', name: 'Differential Calculus', institution: 'University of Toronto', grade: 79},
+  {code: 'MAT 136', name: 'Integral Calculus', institution: 'University of Toronto', grade: 75},
+  {code: 'CPSC 121', name: 'Models of Computation', institution: 'University of British Columbia', grade: 86},
+  {code: 'CPSC 210', name: 'Software Construction', institution: 'University of British Columbia', grade: 75},
+  {code: 'CPSC 213', name: 'Introduction to Computer Systems', institution: 'University of British Columbia', grade: 68},
+  {code: 'CPSC 221', name: 'Basic Algorithms and Data Structures', institution: 'University of British Columbia', grade: 80},
+  {code: 'CPSC 304', name: 'Introduction to Relational Databases', institution: 'University of British Columbia', grade: 73},
+  {code: 'DSCI 100', name: 'Introduction to Data Science', institution: 'University of British Columbia', grade: 82},
+  {code: 'MATH 200', name: 'Calculus III', institution: 'University of British Columbia', grade: 70},
+  {code: 'MATH 215', name: 'Elementary Differential Equations', institution: 'University of British Columbia', grade: 82},
+  {code: 'MATH 221', name: 'Matrix Algebra', institution: 'University of British Columbia', grade: 73},
+  {code: 'MATH 302', name: 'Introduction to Probability', institution: 'University of British Columbia', grade: 72},
+  {code: 'STAT 251', name: 'Elementary Statistics', institution: 'University of British Columbia', grade: 72},
+  {code: 'COMP 2430', name: 'Mobile Computing Technology', institution: 'Lakehead University', grade: 78},
+  {code: 'COMP 3415', name: 'Software Engineering', institution: 'Lakehead University', grade: 88},
+  {code: 'COMP 3473', name: 'Operating Systems', institution: 'Lakehead University', grade: 88},
+  {code: 'COMP 4312', name: 'Cloud Computing', institution: 'Lakehead University', grade: 94},
+  {code: 'COMP 4411', name: 'Programming Languages', institution: 'Lakehead University', grade: 86},
+  {code: 'COMP 4453', name: 'Computer Networks & Distribute', institution: 'Lakehead University', grade: 79},
+  {code: 'COMP 4476', name: 'Cryptography Network Security', institution: 'Lakehead University', grade: 90},
+  {code: 'MATH 1271', name: 'Discrete Mathematics', institution: 'Lakehead University', grade: 100},
 ];
 
 export const certifications: Certification[] = [
-  { name: 'Docker Certification', provider: 'Boot.dev', icon: 'Container' },
-  { name: 'Linux Certification', provider: 'Boot.dev', icon: 'Terminal' },
-  { name: 'Git Certification', provider: 'Boot.dev', icon: 'GitBranch' },
-  { name: 'Infrastructure', provider: 'Google Cloud Skills', icon: 'Server' },
-  { name: 'Networking & Security', provider: 'Google Cloud Skills', icon: 'Shield' },
-  { name: 'Cloud Fundamentals', provider: 'Google Cloud Skills', icon: 'Cloud' },
+  { name: 'Docker Certification', provider: 'Boot.dev', icon: 'Container', image: '/certificates/bootdev-docker-certificate.png', link: 'https://www.boot.dev/certificates/cda502ea-0d08-403d-9835-1a4774cfe68c' },
+  { name: 'Linux Certification', provider: 'Boot.dev', icon: 'Terminal', image: '/certificates/bootdev-linux-certificate.png', link: 'https://www.boot.dev/certificates/2a5b7444-2363-4ae1-8b6d-c561acd84ef9' },
+  { name: 'Git Certification', provider: 'Boot.dev', icon: 'GitBranch', image: '/certificates/bootdev-git-certificate.png', link: 'https://www.boot.dev/certificates/63512354-c6a1-48d5-b8bc-5af068cae3db' },
+  { name: 'Go Certification', provider: 'Boot.dev', icon: 'Languages', image: '/certificates/bootdev-go-certificate.png', link: 'https://www.boot.dev/certificates/1dc854b6-f2a6-4191-a34c-572e8251a142' },
+  { name: 'Infrastructure', provider: 'Google Cloud Skills', icon: 'Server', image: '/certificates/google-cloud-infrastructure-certificate.png', link: 'https://www.skills.google/public_profiles/f2b700c8-1dd1-4830-a906-78b14469b07f/badges/20438357' },
+  { name: 'Networking & Security', provider: 'Google Cloud Skills', icon: 'Shield', image: '/certificates/google-cloud-networking-certificate.png', link: 'https://www.skills.google/public_profiles/f2b700c8-1dd1-4830-a906-78b14469b07f/badges/20579851' },
+  { name: 'Cloud Fundamentals', provider: 'Google Cloud Skills', icon: 'Cloud', image: '/certificates/google-cloud-fundamentals-certificate.png', link: 'https://www.skills.google/public_profiles/f2b700c8-1dd1-4830-a906-78b14469b07f/badges/20161988' },
+  { name: 'Next.js Certification', provider: 'Vercel', icon: 'Frame', image: '/certificates/next.js-vercel-certification.png', link: 'https://nextjs.org/learn/certificate?course=dashboard-app&user=126184&certId=dashboard-app-126184-1767889164506' },
 ];
 
 export const hackathons: Hackathon[] = [
   {
-    name: 'YuKeSong2025 Hackathon',
+    name: 'YuKeSong2025 Hack',
     award: 'Award of Excellence',
     date: 'November 2025',
+    link: 'https://devpost.com/software/memento-fme0yb',
     description: [
       'Ranked as a top participant for successfully architecting and deploying a functional AI-driven study tool',
       'Recognized for meeting 100% of technical submission requirements, including stable API integration',
+    ],
+  },
+  {
+    name: 'Yelp AI API Hackathon',
+    date: 'December 2025',
+    link: 'https://devpost.com/software/odysseyelp',
+    description: [
+      'Integrated Google Gemini and Yelp Fusion APIs to transform natural language into a Travel Engine and reduced potential API overhead by 60%',
+      'Leveraged WebSockets to reduce data sync lag from several seconds to 100ms, enabling a zero-latency collaborative group chats',
     ],
   },
 ];
