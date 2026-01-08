@@ -3,7 +3,7 @@ import { skills } from '@/data/portfolio';
 
 export default function SkillsCard() {
   return (
-    <div className="flex w-full max-w-3xl mx-auto h-[350px] gap-2 p-2 bg-accent rounded-sm border border-accent-foreground/10 shadow-2xl">
+    <div className="flex w-full max-w-3xl mx-auto h-[350px] gap-2 p-2 bg-accent rounded-sm border border-accent-foreground/10 shadow-xl">
       {skills.map((skill) => (
         <div 
           key={skill.category}

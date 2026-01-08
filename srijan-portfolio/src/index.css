@@ -7,7 +7,7 @@ All colors MUST be HSL.
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4rem; /* Matches your h-16 header height */
+  scroll-padding-top: 2px; /* Matches your h-16 header height */
 }
 
 :root {
