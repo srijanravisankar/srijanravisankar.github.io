@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Phone } from 'lucide-react';
 import { portfolioInfo } from '@/data/portfolio';
 import { Link } from 'react-router-dom';
 
@@ -28,18 +28,24 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-sm">Quick Links</h3>
             <nav className="flex flex-col gap-2">
-              <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#home" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Home
-              </Link>
-              <Link to="/portfolio" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Projects
-              </Link>
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              </a>
+              <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 About
-              </Link>
-              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Contact
-              </Link>
+              </a>
+              <a href="#coursework" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Coursework
+              </a>
+              <a href="#projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Projects
+              </a>
+              <a href="#skills" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Skills
+              </a>
+              <a href="#certifications" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Certifications
+              </a>
             </nav>
           </div>
 
@@ -66,27 +72,26 @@ export function Footer() {
                 <Linkedin className="size-5" />
               </a>
               <a
-                href={`mailto:${portfolioInfo.socialLinks.email}`}
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=srijanvr@gmail.com&su=Inquiry%20from%20Portfolio"
+                target="_blank"
+                rel="noreferrer"
                 className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background"
-                aria-label="Email"
               >
                 <Mail className="size-5" />
               </a>
+              <a
+                href={`tel:${portfolioInfo.socialLinks.phone}`}
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background"
+              >
+                <Phone className="size-5" />
+              </a>
             </div>
-            <p className="text-sm text-muted-foreground">
-              {portfolioInfo.socialLinks.email}
-            </p>
-            <p className="text-sm text-muted-foreground -mt-2">
-              {portfolioInfo.socialLinks.phone}
-            </p>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-3 border-t border-border flex flex-col sm:flex-row items-center justify-center">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} {portfolioInfo.name}. All rights reserved.
-          </p>
+        <div className="mt-1 border-t border-border flex flex-col sm:flex-row items-center justify-center">
+          <p className="text-xs text-muted-foreground mt-3">© {currentYear} Developed by {portfolioInfo.name}. Components inspired by and adapted from <a href="https://uiverse.io/" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline transition-colors">Uiverse.io</a></p>
         </div>
       </div>
     </footer>

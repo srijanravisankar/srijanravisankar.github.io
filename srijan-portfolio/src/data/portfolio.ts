@@ -69,7 +69,7 @@ export interface Courses {
 export const portfolioInfo = {
   name: 'Srijan Ravisankar',
   title: 'Full-Stack Developer',
-  tagline: 'Building performant, scalable applications with modern technologies',
+  tagline: 'Building performant, scalable applications.',
   heroIntro: 'Computer Science student passionate about crafting elegant solutions to complex problems. Specializing in full-stack development with React, TypeScript, and cloud technologies.',
   
   about: `I'm a Computer Science student at Lakehead University with a passion for building intuitive, high-performance applications. My expertise spans modern web technologies, from React and TypeScript on the frontend to Node.js, FastAPI, and Kotlin on the backend.

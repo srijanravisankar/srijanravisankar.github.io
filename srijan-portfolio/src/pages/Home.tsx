@@ -189,12 +189,12 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-24 md:py-32 px-6 lg:px-8 bg-background relative">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-background relative">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-5">
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  <h2 id="about" className="text-3xl md:text-4xl font-bold tracking-tight">
                     About Me
                   </h2>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -228,7 +228,7 @@ export default function Home() {
                   </ScrollReveal>
                 </div>
                 <div className="relative">
-                  <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center overflow-hidden">
+                  <div className="aspect-square rounded-full bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center overflow-hidden">
                     <motion.div
                       className="absolute inset-0 bg-[conic-gradient(from_0deg,hsl(var(--primary)/0.1),transparent,hsl(var(--primary)/0.1))]"
                       animate={{ rotate: 360 }}
@@ -244,37 +244,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Coursework Section */}
-        {/* <section id="coursework" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <ScrollReveal delay={0.1}>
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <BookOpen className="size-6 text-primary" />
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tight">Coursework</h2>
-                  </div>
-                  <Card className="bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-6">
-                      <div className="flex flex-wrap gap-2">
-                        {coursework.map((course) => (
-                          <Badge key={course} variant="secondary" className="font-normal">
-                            {course}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section> */}
-
         {/* Coursework Section in Home.tsx */}
-        <section id="coursework" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30 overflow-hidden">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-accent/30 overflow-hidden">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-12">
@@ -282,7 +253,7 @@ export default function Home() {
                   <div className="p-2 rounded-lg bg-primary/10">
                     <BookOpen className="size-6 text-primary" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Relevant Coursework</h2>
+                  <h2 id="coursework" className="text-3xl md:text-4xl font-bold tracking-tight">Relevant Coursework</h2>
                 </div>
                 <p className="text-muted-foreground text-lg">
                   Core computer science and engineering modules
@@ -300,11 +271,11 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-24 md:py-32 px-6 lg:px-8 bg-background">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-background">
           <div className="max-w-5xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                <h2 id="projects" className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                   Featured Projects
                 </h2>
                 <p className="text-muted-foreground text-lg">
@@ -326,11 +297,11 @@ export default function Home() {
         </section>
 
         {/* Skills Section in Home.tsx */}
-        <section id="skills" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-accent/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                <h2 id="skills" className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                   Technical Skills
                 </h2>
                 <p className="text-muted-foreground text-lg">
@@ -365,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* Certifications Section in Home.tsx */}
-        <section id="certifications" className="py-24 md:py-32 px-6 lg:px-8 bg-background overflow-visible">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-background overflow-visible">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center -mb-6">
@@ -373,7 +344,7 @@ export default function Home() {
                   <div className="p-2 rounded-lg bg-primary/10">
                     <Award className="size-6 text-primary" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  <h2 id="certifications" className="text-3xl md:text-4xl font-bold tracking-tight">
                     Certifications
                   </h2>
                 </div>
@@ -396,7 +367,7 @@ export default function Home() {
         </section>
 
         {/* Hackathons Section */}
-        <section id="hackathons" className="py-24 md:py-32 px-6 lg:px-8 bg-accent/30">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-accent/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -404,7 +375,7 @@ export default function Home() {
                   <div className="p-2 rounded-lg bg-primary/10">
                     <Trophy className="size-6 text-primary" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  <h2 id="hackathons" className="text-3xl md:text-4xl font-bold tracking-tight">
                     Hackathons & Competitions
                   </h2>
                 </div>
@@ -446,10 +417,10 @@ export default function Home() {
         </section>
 
         {/* Updated Contact CTA Section in Home.tsx */}
-        <section id="contact" className="py-24 md:py-32 px-6 lg:px-8 bg-background relative overflow-hidden">
+        <section className="py-20 md:py-20 px-6 lg:px-8 bg-background relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]" />
           
-          <div className="max-w-4xl mx-auto relative z-10">
+          <div id="contact" className="max-w-4xl mx-auto relative z-10">
             <ScrollReveal>
               <div className="flex flex-col items-center justify-center text-center space-y-12">
                 
