@@ -38,7 +38,7 @@ export default function Home() {
     <>
       <SEOHead
         title="Srijan Ravisankar's Developer Portfolio"
-        description="Full-stack developer specializing in React, TypeScript, and cloud technologies. Building performant, scalable applications."
+        description="I build performant, scalable applications using modern and cloud technologies. Explore my featured projects and technical journey."
       />
 
       <div className="min-h-screen">

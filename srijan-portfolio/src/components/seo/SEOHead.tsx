@@ -20,9 +20,9 @@ export function SEOHead({
 }: SEOHeadProps) {
   const location = useLocation();
   
-  const fullTitle = title ? title : "Srijan Ravisankar Developer Portfolio";
+  const fullTitle = title ? title : "Srijan Ravisankar's Developer Portfolio";
   
-  const fullDescription = description || "Explore my featured projects and technical journey.";
+  const fullDescription = description || "I build performant, scalable applications using modern and cloud technologies. Explore my featured projects and technical journey.";
   
   const baseUrl = window.location.origin;
   const fullUrl = `${baseUrl}${location.pathname}`;
