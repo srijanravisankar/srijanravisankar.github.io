@@ -147,7 +147,7 @@ export function Header({ showGif = false }: { showGif?: boolean }) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="size-9"
+                  className="size-9 text-muted-foreground"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
