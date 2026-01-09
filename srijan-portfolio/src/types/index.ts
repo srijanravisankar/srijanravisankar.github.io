@@ -29,7 +29,7 @@ export interface Project {
   slug: string;
 }
 
-export interface PhotographerInfo {
+export interface DeveloperInfo {
   name: string;
   tagline: string;
   heroIntroduction: string;

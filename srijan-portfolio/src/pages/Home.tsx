@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Srijan Ravisankar | Full-Stack Developer"
+        title="Srijan Ravisankar's Developer Portfolio"
         description="Full-stack developer specializing in React, TypeScript, and cloud technologies. Building performant, scalable applications."
       />
 
