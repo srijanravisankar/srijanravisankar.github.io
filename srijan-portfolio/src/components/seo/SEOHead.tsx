@@ -15,7 +15,7 @@ interface SEOHeadProps {
 export function SEOHead({ 
   title, 
   description, 
-  image = '/flickering-developer.png',
+  image = '/resume-preview.png',
   type = 'website'
 }: SEOHeadProps) {
   const location = useLocation();
