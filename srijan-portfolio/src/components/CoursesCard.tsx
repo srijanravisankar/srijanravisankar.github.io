@@ -59,9 +59,9 @@ const MarqueeRow = ({ items, direction = 'left', speed = '20s' }: MarqueeProps) 
 
 export default function CoursesCard() {  
   // Split your coursework into 3 rows
-  const row1 = coursework.slice(0, 5);
-  const row2 = coursework.slice(5, 15);
-  const row3 = coursework.slice(15, 22);
+  const row1 = coursework.slice(0, 7);
+  const row2 = coursework.slice(7, 21);
+  const row3 = coursework.slice(21, 30);
 
   return (
     <div className="flex flex-col gap-4 py-8">

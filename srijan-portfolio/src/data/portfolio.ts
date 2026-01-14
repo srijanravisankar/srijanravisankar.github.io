@@ -197,6 +197,8 @@ export const coursework: Courses[] = [
   {code: 'MAT 102', name: 'Introduction to Mathematical Proofs', institution: 'University of Toronto', grade: 84},
   {code: 'MAT 135', name: 'Differential Calculus', institution: 'University of Toronto', grade: 79},
   {code: 'MAT 136', name: 'Integral Calculus', institution: 'University of Toronto', grade: 75},
+  {code: 'ECO 101', name: 'Principles of Microeconomics', institution: 'University of Toronto', grade: 90},
+  {code: 'ISP 100', name: 'Writing for University and Beyond', institution: 'University of Toronto', grade: 85},
   {code: 'CPSC 121', name: 'Models of Computation', institution: 'University of British Columbia', grade: 86},
   {code: 'CPSC 210', name: 'Software Construction', institution: 'University of British Columbia', grade: 75},
   {code: 'CPSC 213', name: 'Introduction to Computer Systems', institution: 'University of British Columbia', grade: 68},
@@ -208,6 +210,9 @@ export const coursework: Courses[] = [
   {code: 'MATH 221', name: 'Matrix Algebra', institution: 'University of British Columbia', grade: 73},
   {code: 'MATH 302', name: 'Introduction to Probability', institution: 'University of British Columbia', grade: 72},
   {code: 'STAT 251', name: 'Elementary Statistics', institution: 'University of British Columbia', grade: 72},
+  {code: 'WRDS 150', name: 'Writing and Research', institution: 'University of British Columbia', grade: 75},
+  {code: 'BIOL 111', name: 'Introduction to Modern Biology', institution: 'University of British Columbia', grade: 82},
+  {code: 'SPAN 101', name: "Beginners' Spanish I", institution: 'University of British Columbia', grade: 77},
   {code: 'COMP 2430', name: 'Mobile Computing Technology', institution: 'Lakehead University', grade: 78},
   {code: 'COMP 3415', name: 'Software Engineering', institution: 'Lakehead University', grade: 88},
   {code: 'COMP 3473', name: 'Operating Systems', institution: 'Lakehead University', grade: 88},
@@ -216,6 +221,7 @@ export const coursework: Courses[] = [
   {code: 'COMP 4453', name: 'Computer Networks & Distribute', institution: 'Lakehead University', grade: 79},
   {code: 'COMP 4476', name: 'Cryptography Network Security', institution: 'Lakehead University', grade: 90},
   {code: 'MATH 1271', name: 'Discrete Mathematics', institution: 'Lakehead University', grade: 100},
+  {code: 'SOCI 2755', name: 'Tech, Soc, and Indi People of Canada', institution: 'Lakehead University', grade: 78},
 ];
 
 export const certifications: Certification[] = [
