@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Globe, ExternalLink, Code2, Link, Eye, Telescope, Timer, Wallet, Brain, Binoculars, Video } from 'lucide-react';
+import { Github, Globe, ExternalLink, Code2, Link, Eye, Telescope, Timer, Wallet, Brain, Binoculars, Video, AudioWaveform } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;

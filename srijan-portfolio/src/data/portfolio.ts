@@ -181,6 +181,22 @@ export const projects: Project[] = [
     video: 'https://www.youtube.com/watch?v=DRINEXERaqk&t=1s',
     icon: 'Wallet',
   },
+  {
+    id: '5',
+    title: 'CipherSonic',
+    slug: 'ciphersonic',
+    description: 'Secure Key & Message Exchange via Sound & HTTP',
+    highlights: [
+      'Engineered a sovereign cryptographic orchestration engine utilizing dual-layer RSA-4096 and AES-256 protocols',
+      'Formulated near-field ultrasonic data-link protocols via GGWave to transmit URL-encoded cipher-fragments',
+      'Architected real-time WebSocket telemetry via Flask-SocketIO to synchronize local HTTP encrypted nodes',
+    ],
+    technologies: ['Python', 'Flask', 'GGWave', 'PyCryptodome', 'RSA', 'AES', 'WebSockets', 'PortAudio'],
+    period: 'October 2025 – November 2025',
+    sourceCode: 'https://github.com/srijanravisankar/CryptographyProjects/tree/main/CipherSonic',
+    coverImage: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
+    icon: 'AudioWaveform',
+  },
 ];
 
 export const education: Education = {
