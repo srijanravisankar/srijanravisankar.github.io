@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Globe, ExternalLink, Code2, Link, Eye, Telescope, Timer, Wallet, Brain, Binoculars, Video, AudioWaveform } from 'lucide-react';
+import { Code2, Telescope, Timer, Wallet, Brain, Binoculars, Video, AudioWaveform, Notebook } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -15,7 +15,7 @@ interface ProjectCardProps {
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Code2, Timer, Wallet, Brain, Binoculars
+  Code2, Timer, Wallet, Brain, Binoculars, Notebook, AudioWaveform
 };
 
 const ProjectCard = ({ title, description, technologies, liveDemo, sourceCode, icon, video, frontendCode, backendCode }: ProjectCardProps) => {

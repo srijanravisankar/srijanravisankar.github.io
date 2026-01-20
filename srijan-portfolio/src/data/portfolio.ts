@@ -126,6 +126,24 @@ export const projects: Project[] = [
     video: 'https://youtu.be/434eIXuXy24?si=OlAsf0kFuiktDs13',
   },
   {
+    id: '6',
+    title: 'CleverCourse',
+    slug: 'clevercourse',
+    description: 'An AI-powered, ADHD-optimized, Bite-sized learning for distracted minds',
+    highlights: [
+      'Architected a non-linear Course Graph via Gemini 2.0, mapping complex educational topics into interactive nodes in a sub-3s generation window', 
+      'Engineered a dual-coding "Podcast Mode" using Web Speech API, synchronizing real-time text highlighting with 0ms visual-audio latency',
+      'Secured "Moonshot" Honorable Mention at United Hacks (150+ projects, 1200+ participants)'
+    ],
+    technologies: ['Next.js', 'TypeScript', 'Zustand', 'TailwindCSS', 'Google Gemini', 'SQLite'],
+    period: 'December 2025',
+    liveDemo: 'https://clevercourse.vercel.app/',
+    sourceCode: 'https://github.com/srijanravisankar/clevercourse',
+    coverImage: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80',
+    video: 'https://www.youtube.com/watch?v=2AZWmEggLpg',
+    icon: 'Notebook',
+  },
+  {
     id: '2',
     title: 'Heyday',
     slug: 'heyday',
@@ -230,14 +248,18 @@ export const coursework: Courses[] = [
   {code: 'BIOL 111', name: 'Introduction to Modern Biology', institution: 'University of British Columbia', grade: 82},
   {code: 'SPAN 101', name: "Beginners' Spanish I", institution: 'University of British Columbia', grade: 77},
   {code: 'COMP 2430', name: 'Mobile Computing Technology', institution: 'Lakehead University', grade: 78},
+  // {code: 'COMP 2476', name: 'Introduction to Assembly Language & Operating Systems', institution: 'Lakehead University', grade: 100},
   {code: 'COMP 3415', name: 'Software Engineering', institution: 'Lakehead University', grade: 88},
   {code: 'COMP 3473', name: 'Operating Systems', institution: 'Lakehead University', grade: 88},
   {code: 'COMP 4312', name: 'Cloud Computing', institution: 'Lakehead University', grade: 94},
+  // {code: 'COMP 4311', name: 'Big Data', institution: 'Lakehead University', grade: 100},
   {code: 'COMP 4411', name: 'Programming Languages', institution: 'Lakehead University', grade: 86},
+  // {code: 'COMP 4431', name: 'Advanced Project', institution: 'Lakehead University', grade: 100},
+  // {code: 'COMP 4433', name: 'Algorithm Design and Analysis', institution: 'Lakehead University', grade: 100},
   {code: 'COMP 4453', name: 'Computer Networks & Distribute', institution: 'Lakehead University', grade: 79},
   {code: 'COMP 4476', name: 'Cryptography Network Security', institution: 'Lakehead University', grade: 90},
   {code: 'MATH 1271', name: 'Discrete Mathematics', institution: 'Lakehead University', grade: 100},
-  {code: 'SOCI 2755', name: 'Tech, Soc, and Indi People of Canada', institution: 'Lakehead University', grade: 78},
+  {code: 'SOCI 2755', name: 'Tech, Soc, and Indi People in Canada', institution: 'Lakehead University', grade: 78},
 ];
 
 export const certifications: Certification[] = [
